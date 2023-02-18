@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Python package
-        path: dist
+        path: dist/
         if-no-files-found: error
     - name: Publish wheel
       run: poetry publish
@@ -49,6 +49,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Python package
+          path: dist/
 
       - name: Build Docker image
         uses: docker/build-push-action@v4
