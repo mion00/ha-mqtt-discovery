@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build-wheel:
-    name: Build Python package
+    name: Build and publish Python package
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -31,7 +31,7 @@ jobs:
       with:
         name: Python package
         path: dist/
-        if-no-files-found: fail
+        if-no-files-found: error
     - name: Publish wheel
       run: poetry publish
 
