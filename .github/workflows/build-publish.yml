@@ -34,6 +34,7 @@ jobs:
         if-no-files-found: error
     - name: Publish wheel
       run: poetry publish
+      continue-on-error: true  # TODO: only for testing
 
   docker-image:
     needs: build-wheel
